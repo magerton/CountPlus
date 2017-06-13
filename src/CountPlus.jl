@@ -5,7 +5,7 @@ module CountPlus
 export countplus!, resetcount, startcount, stopcount
 
 # Initialize Count
-global C,D,iters,d_vec
+global C, D, iters, d_vec
 
 # functions that allow adjusting settings
 include("set.jl")

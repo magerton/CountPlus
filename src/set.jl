@@ -31,7 +31,7 @@ entry in `denom` is used after the maximum of `iter`.
 Currently finds the first such entry in `iter` so non-monotonically increasing
 arrays have extra information.
 """
-function startcount(i::Array{Int},d::Array{Int})
+function startcount{T<:Real, S<:Real}(i::Array{T},d::Array{S})
 	# could sort sort!(i) but would want to preserve order in d
 	global iters = [i,Inf;] # add Inf to avoid a check failure
 	global d_vec = [d,d[end];] # repeat last forever

@@ -16,7 +16,7 @@ resetcount()
 
 # CountPlus has a pre-set pattern for displaying counts but you can change
 # this count with startcount(iter,denom).
-startcount([10,50,500;],[1,3,50,500;])
+startcount([10,50,500,], [1,3,50,500,])
 [countplus!() for ii in 1:T]
 # TIP: You can add an extra entry to the 2nd array that occurs after the
 # maximum of the first array is reached. Otherwise it continues with last entry
@@ -30,5 +30,5 @@ resetcount()
 
 ## Print iteration count, fval, and parameter vector
 resetcount()
-[countplus!((ii-100)^2,ii) for ii in [1.0:T;]]
+[countplus!((ii-100)^2,ii) for ii in 1.0:T]
   # currently requires Float64

@@ -25,14 +25,14 @@ function countplus!()
   return C
 end
 
-function countplus!(f::AbstractFloat)
+function countplus!(f)
   # Announce iteration and fval
   global C += 1
   check() && println("Eval ", C, ": value = ", round(f, 8))
   return C
 end
 
-function countplus!{T<:AbstractFloat, R<:AbstractFloat}(f::T,p::Union{R,Array{R}})
+function countplus!(f,p)
   # Announce iteration, fval, and pvec
   global C += 1
   check() && println("Eval ", C, " value = ", round(f, 8), "\tpvec = ", round.(p, 5))

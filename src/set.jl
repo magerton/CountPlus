@@ -15,9 +15,9 @@ end
 Disables printing of iterations.
 """
 function stopcount()
-	global iters = [Inf;]
+	global iters = [Inf,]
 	global D = Inf
-	global d_vec = [Inf;]
+	global d_vec = [Inf,]
 	return
 end
 
@@ -31,7 +31,7 @@ entry in `denom` is used after the maximum of `iter`.
 Currently finds the first such entry in `iter` so non-monotonically increasing
 arrays have extra information.
 """
-function startcount{T<:Real, S<:Real}(i::Array{T},d::Array{S})
+function startcount(i::AbstractArray, d::AbstractArray)
 	# could sort sort!(i) but would want to preserve order in d
 	global iters = [i,Inf;] # add Inf to avoid a check failure
 	global d_vec = [d,d[end];] # repeat last forever
@@ -40,7 +40,7 @@ end
 
 function startcount()
 	# Sets Defaults
-	global iters = [10,50,500,Inf;]
-	global d_vec = [1,5,50,500;]
+	global iters = [10,50,500,Inf]
+	global d_vec = [1,5,50,500]
 	return
 end

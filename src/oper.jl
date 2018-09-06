@@ -21,20 +21,20 @@ Default Rules:
 function countplus!()
   # Announce iterations
   global C += 1
-  check() ? println("Eval ", C) : ""
+  check() &&  println("Eval ", C)
   return C
 end
 
 function countplus!(f::AbstractFloat)
   # Announce iteration and fval
   global C += 1
-  check() ? println("Eval ", C, ": value = ", round(f, 8))  : ""
+  check() && println("Eval ", C, ": value = ", round(f, 8))
   return C
 end
 
 function countplus!{T<:AbstractFloat, R<:AbstractFloat}(f::T,p::Union{R,Array{R}})
   # Announce iteration, fval, and pvec
   global C += 1
-  check() ? println("Eval ", C, " value = ", round(f, 8), "\tpvec = ", round(p, 5)) : ""
+  check() && println("Eval ", C, " value = ", round(f, 8), "\tpvec = ", round.(p, 5))
   return C
 end

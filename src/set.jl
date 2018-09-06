@@ -33,8 +33,8 @@ arrays have extra information.
 """
 function startcount(i::AbstractArray, d::AbstractArray)
 	# could sort sort!(i) but would want to preserve order in d
-	global iters = [i,Inf;] # add Inf to avoid a check failure
-	global d_vec = [d,d[end];] # repeat last forever
+	global iters = [i,Inf,] # add Inf to avoid a check failure
+	global d_vec = [d,d[end],] # repeat last forever
 	return
 end
 

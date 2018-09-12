@@ -1,6 +1,6 @@
 function check()
 	global D
-	sel = findfirst(x->x.>C, iters)
+	sel = findfirst(x-> x.>C, iters)
 	D == d_vec[sel] || println("switching to every $(d_vec[sel])...")
 	D = d_vec[sel]
 	mod(C, D) == 0
@@ -25,16 +25,16 @@ function countplus!()
   return C
 end
 
-function countplus!(f)
+function countplus!(f::Number)
   # Announce iteration and fval
   global C += 1
-  check() && println("Eval ", C, ": value = ", round(f, 8))
+  check() && println("Eval ", C, ": value = ", round(f; digits=8))
   return C
 end
 
-function countplus!(f,p)
+function countplus!(f::Number,p::AbstractArray)
   # Announce iteration, fval, and pvec
   global C += 1
-  check() && println("Eval ", C, " value = ", round(f, 8), "\tpvec = ", round.(p, 5))
+  check() && println("Eval ", C, " value = ", round(f; digits=8), "\tpvec = ", round.(p; digits=5))
   return C
 end

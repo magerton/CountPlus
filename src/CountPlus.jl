@@ -1,5 +1,3 @@
-
-
 module CountPlus
 
 export countplus!, resetcount, startcount, stopcount

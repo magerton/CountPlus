@@ -18,7 +18,7 @@ include("set.jl")
 include("oper.jl")
 
 # Set everything to defaults
-startcount()
-resetcount()
+startcount!()
+resetcount!()
 
 end

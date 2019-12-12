@@ -1,9 +1,12 @@
 function check()
-	global D
-	sel = findfirst(x-> x.>C, iters)
-	D == d_vec[sel] || println("switching to every $(d_vec[sel])...")
-	D = d_vec[sel]
-	mod(C, D) == 0
+    # global iters, d_vec
+    dv = d_vec[]
+    it = iters[]
+
+    sel = findfirst(x-> x .> C[], it)
+    D[] == dv[sel] || println("switching to every $(dv[sel])...")
+    D[] = dv[sel]
+    return mod(C[], D[]) == 0
 end
 
 """
@@ -20,21 +23,27 @@ Default Rules:
 """
 function countplus!()
   # Announce iterations
-  global C += 1
-  check() &&  println("Eval ", C)
-  return C
+  # global
+  C[] += 1
+  check() &&  println("Eval ", C[])
+  return C[]
 end
 
 function countplus!(f::Number)
   # Announce iteration and fval
-  global C += 1
-  check() && println("Eval ", C, ": value = ", round(f; digits=8))
-  return C
+  # global
+  C[] += 1
+  roundf = round(f; digits=8)
+  check() && println("Eval $(C[]): value = $roundf")
+  return C[]
 end
 
-function countplus!(f::Number,p::AbstractArray)
+function countplus!(f::Number,p)
   # Announce iteration, fval, and pvec
-  global C += 1
-  check() && println("Eval ", C, " value = ", round(f; digits=8), "\tpvec = ", round.(p; digits=5))
-  return C
+  # global
+  C[] += 1
+  roundf = round(f; digits=8)
+  roundp = round.(p; digits=5)
+  check() && println("Eval $(C[]) value = $roundf\tpvec = $roundp")
+  return C[]
 end

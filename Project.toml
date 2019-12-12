@@ -1,5 +1,8 @@
 name = "CountPlus"
 uuid = "fc19a607-4a1c-5e34-bf0d-7dd5ba9e7eda"
 
+[deps]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
 [compat]
 julia = "≥ 0.7.0"

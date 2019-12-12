@@ -4,9 +4,9 @@
 Resets iteration count to 0.
 """
 function resetcount()
-	global C = 0
-	global D = 1
-	return
+	C[] = zero(T)
+	D[] = one(T)
+	return nothing
 end
 
 """
@@ -15,10 +15,10 @@ end
 Disables printing of iterations.
 """
 function stopcount()
-	global iters = [Inf,]
-	global D = Inf
-	global d_vec = [Inf,]
-	return
+	D[] = InfT
+	iters[] = [InfT,]
+	d_vec[] = [InfT,]
+	return nothing
 end
 
 """
@@ -31,16 +31,16 @@ entry in `denom` is used after the maximum of `iter`.
 Currently finds the first such entry in `iter` so non-monotonically increasing
 arrays have extra information.
 """
-function startcount(i::AbstractArray, d::AbstractArray)
+function startcount(i::AbstractVector, d::AbstractVector)
 	# could sort sort!(i) but would want to preserve order in d
-	global iters = vcat(i, Inf) # add Inf to avoid a check failure
-	global d_vec = vcat(d, d[end]) # repeat last forever
-	return
+	iters[] = vcat(i, InfT) # add Inf to avoid a check failure
+	d_vec[] = vcat(d, d[end]) # repeat last forever
+	return nothing
 end
 
 function startcount()
 	# Sets Defaults
-	global iters = [10,50,500,Inf]
-	global d_vec = [1,5,50,500]
-	return
+	iters[] = [10,50,500,InfT]
+	d_vec[] = [1,5,50,500]
+	return nothing
 end

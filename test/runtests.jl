@@ -9,7 +9,7 @@ using CountPlus
 
     T = 2000
 
-    resetcount()
+    resetcount!()
 
     @test CountPlus.C[] == 0
     @test CountPlus.D[] == 1
@@ -32,15 +32,15 @@ using CountPlus
     # TIP: You can add an extra entry to the 2nd array that occurs after the
     # maximum of the first array is reached. Otherwise it continues with last entry
     # forever.
-    startcount() # resets to default pattern
+    startcount!() # resets to default pattern
 
     ## Print iteration count and fval
-    resetcount()
+    resetcount!()
     [countplus!(1.0*mod(ii,5)) for ii in 1:T]
       # currently requires Float64
 
     ## Print iteration count, fval, and parameter vector
-    resetcount()
+    resetcount!()
     [countplus!((ii-100)^2,ii) for ii in 1.0:T]
       # currently requires Float64
 

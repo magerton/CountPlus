@@ -1,6 +1,6 @@
 module CountPlus
 
-export countplus!, resetcount, startcount, stopcount
+export countplus!, resetcount!, startcount!, stopcount!
 
 const T = Int
 const VecT = Vector{Int}

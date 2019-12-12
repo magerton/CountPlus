@@ -1,0 +1,5 @@
+name = "CountPlus"
+uuid = "fc19a607-4a1c-5e34-bf0d-7dd5ba9e7eda"
+
+[compat]
+julia = "≥ 0.7.0"

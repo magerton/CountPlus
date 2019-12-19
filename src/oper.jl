@@ -33,8 +33,10 @@ function countplus!(f::Number)
   # Announce iteration and fval
   # global
   C[] += 1
-  roundf = round(f; digits=8)
-  check() && println("Eval $(C[]): value = $roundf")
+  if check()
+    roundf = round(f; digits=8)
+    println("Eval $(C[]): value = $roundf")
+  end
   return C[]
 end
 
@@ -42,9 +44,11 @@ function countplus!(f::Number,p)
   # Announce iteration, fval, and pvec
   # global
   C[] += 1
-  roundf = round(f; digits=8)
-  roundp = round.(p; digits=5)
-  check() && println("Eval $(C[]) value = $roundf\tpvec = $roundp")
+  if check()
+    roundf = round(f; digits=8)
+    roundp = round.(p; digits=5)
+    println("Eval $(C[]) value = $roundf\tpvec = $roundp")
+  end
   return C[]
 end
 
@@ -52,10 +56,11 @@ function countplus!(f::Number,p::AbstractArray,g::AbstractArray)
   # Announce iteration, fval, and pvec
   C[] += 1
   if check()
-		roundf = round(f; digits=8)
-		roundp = round.(p; digits=5)
-		roundg = round.(g; digits=5)
-	  println("Eval $(C[]) value = $roundf\tpvec = $roundp")
-	  println("\tGrad = $roundg")
+  	roundf = round(f; digits=8)
+  	roundp = round.(p; digits=5)
+  	roundg = round.(g; digits=5)
+  	println("Eval $(C[]) value = $(roundf)\tpvec = $roundp")
+  	println("\tGrad = $roundg")
+  end
   return C[]
 end

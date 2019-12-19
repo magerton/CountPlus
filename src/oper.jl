@@ -47,3 +47,15 @@ function countplus!(f::Number,p)
   check() && println("Eval $(C[]) value = $roundf\tpvec = $roundp")
   return C[]
 end
+
+function countplus!(f::Number,p::AbstractArray,g::AbstractArray)
+  # Announce iteration, fval, and pvec
+  C[] += 1
+  if check()
+		roundf = round(f; digits=8)
+		roundp = round.(p; digits=5)
+		roundg = round.(g; digits=5)
+	  println("Eval $(C[]) value = $roundf\tpvec = $roundp")
+	  println("\tGrad = $roundg")
+  return C[]
+end
